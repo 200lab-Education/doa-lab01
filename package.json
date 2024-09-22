@@ -1,0 +1,59 @@
+{
+  "name": "ecom-micro-services",
+  "main": "index.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node --env-file .env dist/index.js",
+    "dev": "nodemon src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^22.0.0",
+    "@types/sequelize": "^4.28.20",
+    "@types/uuid": "^10.0.0",
+    "bun-types": "latest",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.8.0",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.17.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.621.0",
+    "@aws-sdk/lib-storage": "^3.621.0",
+    "@bufbuild/protobuf": "^2.1.0",
+    "@grpc/grpc-js": "^1.11.3",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "image-size": "^1.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "minimist": "^1.2.8",
+    "module-alias": "^2.2.3",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.0",
+    "oxide.ts": "^1.1.0",
+    "sequelize": "^6.37.3",
+    "ts-node": "^10.9.2",
+    "uuid": "^10.0.0"
+  },
+  "_moduleAliases": {
+    "@modules": "src/modules",
+    "@share": "src/share",
+    "@component": "src/component"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
