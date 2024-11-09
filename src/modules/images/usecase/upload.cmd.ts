@@ -11,19 +11,23 @@ export class UploadCommandHandler implements ICommandHandler<UploadImageCmd, str
   async execute(cmd: UploadImageCmd): Promise<string> {
     const now = new Date()
 
-    const newFilename = now.getDate() + '-' + now.getFullYear() + '/' + now.getMilliseconds() + '_' + cmd.dto.objName
+    let newFilename = cmd.dto.objName
+    if (cmd.dto.changeName) {
+      newFilename = now.getDate() + '-' + now.getFullYear() + '/' + now.getMilliseconds() + '_' + cmd.dto.objName
+    }
 
     await this.uploader.uploadImage(newFilename, cmd.dto.filename, cmd.dto.fileSize, cmd.dto.contentType)
 
-    try {
-      fs.unlink(cmd.dto.filename, (err) => {
-        console.error(err)
-      })
-    } catch (e) {
-      console.log(e)
+    if (cmd.dto.rmFile) {
+      try {
+        fs.unlink(cmd.dto.filename, (err) => {
+          console.error(err)
+        })
+      } catch (e) {
+        console.log(e)
+      }
     }
 
     return this.uploader.getFullURL(newFilename)
   }
 }
-

@@ -4,7 +4,7 @@ import { Router } from 'express'
 import multer from 'multer'
 import { HTTPService } from './insfra/transport/http-service'
 import { UploadCommandHandler } from './usecase/upload.cmd'
-import { setupMiddlewares } from '@share/middleware'
+
 import { IAuthService } from '@share/interface'
 
 export function setupImageModule(authService: IAuthService): Router {
@@ -27,8 +27,8 @@ export function setupImageModule(authService: IAuthService): Router {
   const uploadCmdHandler = new UploadCommandHandler(new S3Uploader())
   const service = new HTTPService(uploadCmdHandler)
 
-  const mid = setupMiddlewares(authService)
-  router.use(mid.auth)
+  // const mid = setupMiddlewares(authService)
+  // router.use(mid.auth)
 
   router.post('/upload-image', upload.single('file'), service.uploadImage.bind(service))
 
