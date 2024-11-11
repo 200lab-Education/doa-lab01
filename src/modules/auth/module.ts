@@ -7,7 +7,9 @@ export class AuthService implements IAuthService {
   private client: any
 
   constructor() {
-    const PROTO_PATH = path.resolve(__dirname, '../../proto/auth.proto')
+    const PROTO_PATH = path.resolve(__dirname, 'auth.proto')
+    console.log(PROTO_PATH)
+
     const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
       keepCase: true,
       longs: String,

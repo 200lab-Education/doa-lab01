@@ -1,11 +1,11 @@
 import 'module-alias/register'
 
-import { setupImageModule } from '@modules/images/module'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express, { Express, Request, Response } from 'express'
 
 import { AuthService } from '@modules/auth/module'
+import { setupImageModule } from '@modules/images/module'
 
 dotenv.config()
 ;(async () => {
