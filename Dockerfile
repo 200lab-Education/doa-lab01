@@ -30,7 +30,4 @@ COPY  /src/modules/auth/auth.proto ./src/modules/auth/auth.proto
 COPY --from=base /app/node_modules ./node_modules
 COPY --from=base /app/package.json ./
 
-RUN ls src/modules
-RUN ls src/modules/auth
-
 CMD [ "node", "src/index.js" ]

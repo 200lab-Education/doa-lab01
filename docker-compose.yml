@@ -13,9 +13,17 @@ services:
       AWS_S3_SECRET_ACCESS_KEY:
       AWS_S3_ACCESS_KEY_ID:
       URL_PUBLIC:
+    networks:
+      - 200lab
+
   frontend:
     container_name: frontend
     ports:
       - 80:80
     build:
       context: ./fe
+    networks:
+      - 200lab
+
+networks:
+  200lab:
